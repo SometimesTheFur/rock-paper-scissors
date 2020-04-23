@@ -9,35 +9,64 @@
 
 
     </body>
-    <script>
-        const shoot = ["Rock", "Paper", "Scissors"];
-        
-        let response;
+    <script> 
+        const shoot = ["rock", "paper", "scissors"];
+        let playerSelection = prompt("Rock, Paper, Scissors?");
+            playerSelection.toLowerCase(); 
+
+            if (shoot.indexOf(playerSelection) !== -1) {
+                alert("You Scared? Refresh the page and try again!");
+            } else {
+                playround(playerSelection, computerSelection);
+            }
 
         function computerPlay() {
             return shoot[Math.floor(Math.random() * 3)];
         }
- 
+        const computerSelection = computerPlay();
+
         function playRound(playerSelection, computerSelection) {
             switch (playerSelection, computerSelection) {
-                case ("Rock", "Rock"):
+                case ("rock", "rock"):
                     return "Tie! Rock is equal to Rock!";
                 break;
-                case ("Rock", "Scissors"):
+                case ("rock", "scissors"):
                     return "You win! Rock beats Scissors!";
                 break;
-                case ("Rock", "Paper"):
+                case ("rock", "paper"):
                     return "You Lose! Paper beats Rock!";
+                break;
+                case ("paper", "rock"):
+                    return "You win! Paper beats Rock!";
+                break;
+                case ("paper", "scissors"):
+                    return "You Lose! Scissors beat Paper!";
+                break;
+                case ("paper", "paper"):
+                    return "Tie! Paper is equal to Paper!";
+                break;
+                case ("scissors", "rock"):
+                    return "You Lose! Rock beats Scissors!";
+                break;
+                case ("scissors", "scissors"):
+                    return "Tie! Scissors are equal to Scissors!";
+                break;
+                case ("scissors", "paper"):
+                    return "You win! Scissors beat Paper!";
                 break;
                 default: 
                     return "...";
             }
             
         }
+        function playGame() {
+            let game = playRound();
+            return (game + game + game + game + game);
+        }
+
         
-        const playerSelection = "Rock";
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+        console.log(playRound()) +
+        console.log(playGame());
         
     </script>
 </html>
