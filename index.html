@@ -11,15 +11,24 @@
     </body>
     <script>
         const shoot = ["Rock", "Paper", "Scissors"];
+        const playerSelection = "Rock";
+        const computerSelection = computerPlay();
+        let response;
 
         function computerPlay() {
             return shoot[Math.floor(Math.random() * shoot.length)];
         }
+ 
         function playRound(playerSelection, computerSelection) {
-            //add code
+            if ("Rock", "Rock") {
+                reponse = "Tie! Rock is equal to Rock!"             
+            } else if ("Rock", "Scissors") {
+                response = "You win! Rock beats Scissors!"
+            } else if ("Rock", "Paper") {
+                response = "You Lose! Paper beats Rock!"
+            }
         }
-        const playerSelection = "Rock";
-        const computerSelection = computerPlay()
+        
         console.log(playRound(playerSelection, computerSelection));
 
     </script>
