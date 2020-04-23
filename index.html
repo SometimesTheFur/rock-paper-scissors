@@ -11,25 +11,33 @@
     </body>
     <script>
         const shoot = ["Rock", "Paper", "Scissors"];
-        const playerSelection = "Rock";
-        const computerSelection = computerPlay();
+        
         let response;
 
         function computerPlay() {
-            return shoot[Math.floor(Math.random() * shoot.length)];
+            return shoot[Math.floor(Math.random() * 3)];
         }
  
         function playRound(playerSelection, computerSelection) {
-            if ("Rock", "Rock") {
-                reponse = "Tie! Rock is equal to Rock!"             
-            } else if ("Rock", "Scissors") {
-                response = "You win! Rock beats Scissors!"
-            } else if ("Rock", "Paper") {
-                response = "You Lose! Paper beats Rock!"
+            switch (playerSelection, computerSelection) {
+                case ("Rock", "Rock"):
+                    return "Tie! Rock is equal to Rock!";
+                break;
+                case ("Rock", "Scissors"):
+                    return "You win! Rock beats Scissors!";
+                break;
+                case ("Rock", "Paper"):
+                    return "You Lose! Paper beats Rock!";
+                break;
+                default: 
+                    return "...";
             }
+            
         }
         
+        const playerSelection = "Rock";
+        const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
-
+        
     </script>
 </html>
