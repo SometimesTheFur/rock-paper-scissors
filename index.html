@@ -11,57 +11,43 @@
     </body>
     <script> 
         const shoot = ["rock", "paper", "scissors"];
-        let playerSelection = prompt("Rock, Paper, Scissors?");
-            playerSelection.toLowerCase();
-             
-
-            
+        let input = prompt("Rock, Paper, Scissors?");
+             input.toLowerCase();
+        
+        const playerSelection = input;
 
         function computerPlay() {
             return shoot[Math.floor(Math.random() * 3)];
         }
+        
         const computerSelection = computerPlay();
 
         function playRound(playerSelection, computerSelection) {
-            switch (playerSelection, computerSelection) {
-                case ("rock", "rock"):
-                    return "Tie! Rock is equal to Rock!";
-                break;
-                case ("rock", "scissors"):
-                    return "You win! Rock beats Scissors!";
-                break;
-                case ("rock", "paper"):
-                    return "You Lose! Paper beats Rock!";
-                break;
-                case ("paper", "rock"):
-                    return "You win! Paper beats Rock!";
-                break;
-                case ("paper", "scissors"):
-                    return "You Lose! Scissors beat Paper!";
-                break;
-                case ("paper", "paper"):
-                    return "Tie! Paper is equal to Paper!";
-                break;
-                case ("scissors", "rock"):
-                    return "You Lose! Rock beats Scissors!";
-                break;
-                case ("scissors", "scissors"):
-                    return "Tie! Scissors are equal to Scissors!";
-                break;
-                case ("scissors", "paper"):
-                    return "You win! Scissors beat Paper!";
-                break;
-                default: 
-                    return "...";
-            }
-            
-            if (shoot.indexOf(playerSelection) !== -1) {
-                alert("You Scared? Refresh the page and try again!");
+            if (playerSelection === "rock" && computerSelection === "rock") {
+                return "Tie! Rock is equal to Rock!";
+            } else if (playerSelection === "rock" && computerSelection === "paper") {
+                return "You Lose! Paper beats Rock!";
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                return "You win! Rock beats Scissors!";
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                return "You win! Paper beats Rock!";
+            } else if (playerSelection === "paper" && computerSelection === "paper") {
+                return "Tie! Paper is equal to Paper!";
+            } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                return "You Lose! Scissors beat Paper!";
+            } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                return "You Lose! Rock beats Scissors!";
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                return "You win! Scissors beat Paper!";
+            } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+                return "Tie! Scissors are equal to Scissors!";
             } else {
-                playround(playerSelection, computerSelection);
+                alert("You scared? Please refresh the page and choose Rock, Paper, or Scissors.");
             }
-
         }
+
+            
+
         function playGame() {
             let game = playRound(playerSelection, computerSelection);
             return (game + game + game + game + game);
