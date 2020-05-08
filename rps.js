@@ -1,15 +1,15 @@
         
 const container = document.querySelector('#container');
 
-    const btnRock = document.createElement('btn')
+    const btnRock = document.createElement('button')
+        btnRock.classList.add('buttons');
+    const btnScissors = document.createElement('button');
+
+    const btnPaper = document.createElement('button');
+
+    const playerSelection = onclick('btn');
     
-    const btnScissors = document.createElement('btn');
-
-    const btnPaper = document.createElement('btn');
-
-    const playerSelection = input;
     const shoot = ["rock", "paper", "scissors"];
-    
     function computerPlay() {
         return shoot[Math.floor(Math.random() * 3)];
     }
