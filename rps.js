@@ -1,13 +1,15 @@
         
-const container = document.querySelector('#container');
 
-    const btnRock = document.createElement('button')
-        btnRock.classList.add('buttons');
-    const btnScissors = document.createElement('button');
 
-    const btnPaper = document.createElement('button');
-
-    const playerSelection = onclick('btn');
+function player() {
+    const btnRock = document.querySelector('rock');
+    const btnPaper = document.querySelector('paper');
+    const btnScissors = document.querySelector('scissors');
+      
+}
+   document.getElementById('rock').addEventListener('click', playRound);
+   document.getElementById('paper').addEventListener('click', playRound);
+   document.getElementById('scissors').addEventListener('click', playRound);
     
     const shoot = ["rock", "paper", "scissors"];
     function computerPlay() {
@@ -47,7 +49,7 @@ const container = document.querySelector('#container');
             return "Tie! Scissors are equal to Scissors!"+
                 "   Score: " + (scoreP + "-" + scoreC);
         } else {
-            alert("You scared? Please refresh the page and choose Rock, Paper, or Scissors.");
+            return "Please choose Rock, Paper, or Scissors.";
         }
     }
 
@@ -58,12 +60,14 @@ const container = document.querySelector('#container');
     //}
     function finalScore() {
         if (scoreP > scoreC) {
-                console.log("Final Score: " + (scoreP + "-" + scoreC) + "   Great job! you won!");
+                return "Final Score: " + (scoreP + "-" + scoreC) + "   Great job! you won!";
             } else if (scoreP < scoreC) {
-                console.log("Final Score: " + (scoreP + "-" + scoreC) + "   You lost. Better luck next time!");
+                return "Final Score: " + (scoreP + "-" + scoreC) + "   You lost. Better luck next time!";
             } else if (scoreP == scoreC) {
-                console.log("Final Score: " + (scoreP + "-" + scoreC) + "   Not much to say, it was a tie. Try again!");
+                return "Final Score: " + (scoreP + "-" + scoreC) + "   Not much to say, it was a tie. Try again!";
             }
     }
-    console.log(playGame())+
-    console.log(finalScore());
+    //console.log(playGame())+
+    const round = document.querySelector('#round');
+    document.addEventListener('click', finalScore);
+    document.getElementById('round').innerHTML = playRound();
