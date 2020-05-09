@@ -20,55 +20,55 @@ let playerSelection = '';
         });
 
 
-    function computerPlay() {
-        let rand = shoot[Math.floor(Math.random() * 3)];
-        return rand;
-    }
+
 
     let scoreP = 0;
     let scoreC = 0;
     
         let computerSelection = '';
-    function playRound(playerSelection, computerSelection) {
+    function playRound(playerSelection, computerSelection = computerPlay()) {
         
-        if (playerSelection === "rock" && computerPlay === "rock") {
+        if (playerSelection === "rock" && computerPlay() === "rock") {
             return "Tie! Rock is equal to Rock!"+
                 "   Score: " + (scoreP + "-" + scoreC);
-        } else if (playerSelection === "rock" && computerPlay === "paper") {
+        } else if (playerSelection === "rock" && computerPlay() === "paper") {
             return "You Lose! Paper beats Rock!"+
                 "   Score: " + (scoreP + "-" + ++scoreC);
-        } else if (playerSelection === "rock" && computerPlay === "scissors") {
+        } else if (playerSelection === "rock" && computerPlay() === "scissors") {
             return "You win! Rock beats Scissors!"+
                 "   Score: " + (++scoreP + "-" + scoreC);
-        } else if (playerSelection === "paper" && computerPlay === "rock") {
+        } else if (playerSelection === "paper" && computerPlay() === "rock") {
             return "You win! Paper beats Rock!"+
                 "   Score: " + (++scoreP + "-" + scoreC);
-        } else if (playerSelection === "paper" && computerPlay === "paper") {
+        } else if (playerSelection === "paper" && computerPlay() === "paper") {
             return "Tie! Paper is equal to Paper!"+
                 "   Score: " + (scoreP + "-" + scoreC);
-        } else if (playerSelection === "paper" && computerPlay === "scissors") {
+        } else if (playerSelection === "paper" && computerPlay() === "scissors") {
             return "You Lose! Scissors beat Paper!"+ 
                 "   Score: " + (scoreP + "-" + ++scoreC);
-        } else if (playerSelection === "scissors" && computerPlay === "rock") {
+        } else if (playerSelection === "scissors" && computerPlay() === "rock") {
             return "You Lose! Rock beats Scissors!"+
                 "   Score: " + (scoreP + "-" + ++scoreC);
-        } else if (playerSelection === "scissors" && computerPlay === "paper") {
+        } else if (playerSelection === "scissors" && computerPlay() === "paper") {
             return "You win! Scissors beat Paper!"+
                 "   Score: " + (++scoreP + "-" + scoreC);
-        } else if (playerSelection === "scissors" && computerPlay === "scissors") {
+        } else if (playerSelection === "scissors" && computerPlay() === "scissors") {
             return "Tie! Scissors are equal to Scissors!"+
                 "   Score: " + (scoreP + "-" + scoreC);
         } else {
-            return "Please choose Rock, Paper, or Scissors.";
+            return "Please choose below.";
         }
     }
 
+    function computerPlay() {
+        let rand = shoot[Math.floor(Math.random() * 3)];
+        return rand;
+    }
 
-
-    const play = document.querySelector('button');
-        play.addEventListener('click', function(e){
-   play.onclick(playRound(playerSelection,computerSelection))
-   });
+    const play = document.querySelectorAll('button');
+        play.addEventListener('click' = function(e){
+            console.log(play);
+        });
 
     const round = document.querySelector('#round');
     round.innerText = playRound(playerSelection, computerSelection);
