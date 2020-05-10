@@ -1,77 +1,77 @@
 const shoot = ["rock", "paper", "scissors"];   
 let playerSelection = '';
+let computerSelection = '';
+let scoreP = 0;
+let scoreC = 0;
+
+    function computerPlay() {
+        return shoot[Math.floor(Math.random() * 3)];
+    }
+const round = document.querySelector('#round');
+const comp = document.querySelector('#comp');
 
     const rockBtn = document.querySelector('#rock');
         rockBtn.addEventListener('click', function() {
             playerSelection = shoot[0];
-            return playerSelection;
+            if (playerSelection === "rock" && computerPlay() === "rock") {
+                comp.textContent = "Rock!"
+                round.textContent = "Tie! Rock is equal to Rock!"+
+                    "   Score: " + (scoreP + "-" + scoreC);
+            } else if (playerSelection === "rock" && computerPlay() === "paper") {
+                comp.textContent = "Paper!"
+                round.textContent = "You Lose! Paper beats Rock!"+
+                    "   Score: " + (scoreP + "-" + ++scoreC);
+            } else if (playerSelection === "rock" && computerPlay() === "scissors") {
+                comp.textContent = "Scissors!"
+                round.textContent = "You win! Rock beats Scissors!"+
+                    "   Score: " + (++scoreP + "-" + scoreC);
+            }
         });
-
+        //rockBtn.addEventListener('click', playRound(playerSelection, computerSelection));
+    
     const paperBtn = document.querySelector('#paper');
         paperBtn.addEventListener('click', function() {
             playerSelection = shoot[1];
-            return playerSelection;
+            if (playerSelection === "paper" && computerPlay() === "rock") {
+                comp.textContent = "Rock!"
+                round.textContent = "You win! Paper beats Rock!"+
+                    "   Score: " + (++scoreP + "-" + scoreC);
+            } else if (playerSelection === "paper" && computerPlay() === "paper") {
+                comp.textContent = "Paper!"
+                round.textContent = "Tie! Paper is equal to Paper!"+
+                    "   Score: " + (scoreP + "-" + scoreC);
+            } else if (playerSelection === "paper" && computerPlay() === "scissors") {
+                comp.textContent = "Scissors!"
+                round.textContent = "You Lose! Scissors beat Paper!"+ 
+                    "   Score: " + (scoreP + "-" + ++scoreC);
+            }
         });
+        //paperBtn.addEventListener('click', playRound(playerSelection, computerSelection));
 
     const scissorsBtn = document.querySelector('#scissors');
         scissorsBtn.addEventListener('click', function() {
             playerSelection = shoot[2];
-            return playerSelection;
+            if (playerSelection === "scissors" && computerPlay() === "rock") {
+                comp.textContent = "Rock!"
+                round.textContent = "You Lose! Rock beats Scissors!"+
+                    "   Score: " + (scoreP + "-" + ++scoreC);
+            } else if (playerSelection === "scissors" && computerPlay() === "paper") {
+                comp.textContent = "Paper!"
+                round.textContent = "You win! Scissors beat Paper!"+
+                    "   Score: " + (++scoreP + "-" + scoreC);
+            } else if (playerSelection === "scissors" && computerPlay() === "scissors") {
+                comp.textContent = "Scissors!"
+                round.textContent = "Tie! Scissors are equal to Scissors!"+
+                    "   Score: " + (scoreP + "-" + scoreC);
+            }
         });
+        //scissorsBtn.addEventListener('click', playRound(playerSelection, computerSelection));
 
 
 
+//const play = document.querySelectorAll('button');
+    //play.addEventListener('click', playRound);
 
-    let scoreP = 0;
-    let scoreC = 0;
-    
-        let computerSelection = '';
-    function playRound(playerSelection, computerSelection = computerPlay()) {
-        
-        if (playerSelection === "rock" && computerPlay() === "rock") {
-            return "Tie! Rock is equal to Rock!"+
-                "   Score: " + (scoreP + "-" + scoreC);
-        } else if (playerSelection === "rock" && computerPlay() === "paper") {
-            return "You Lose! Paper beats Rock!"+
-                "   Score: " + (scoreP + "-" + ++scoreC);
-        } else if (playerSelection === "rock" && computerPlay() === "scissors") {
-            return "You win! Rock beats Scissors!"+
-                "   Score: " + (++scoreP + "-" + scoreC);
-        } else if (playerSelection === "paper" && computerPlay() === "rock") {
-            return "You win! Paper beats Rock!"+
-                "   Score: " + (++scoreP + "-" + scoreC);
-        } else if (playerSelection === "paper" && computerPlay() === "paper") {
-            return "Tie! Paper is equal to Paper!"+
-                "   Score: " + (scoreP + "-" + scoreC);
-        } else if (playerSelection === "paper" && computerPlay() === "scissors") {
-            return "You Lose! Scissors beat Paper!"+ 
-                "   Score: " + (scoreP + "-" + ++scoreC);
-        } else if (playerSelection === "scissors" && computerPlay() === "rock") {
-            return "You Lose! Rock beats Scissors!"+
-                "   Score: " + (scoreP + "-" + ++scoreC);
-        } else if (playerSelection === "scissors" && computerPlay() === "paper") {
-            return "You win! Scissors beat Paper!"+
-                "   Score: " + (++scoreP + "-" + scoreC);
-        } else if (playerSelection === "scissors" && computerPlay() === "scissors") {
-            return "Tie! Scissors are equal to Scissors!"+
-                "   Score: " + (scoreP + "-" + scoreC);
-        } else {
-            return "Please choose below.";
-        }
-    }
-
-    function computerPlay() {
-        let rand = shoot[Math.floor(Math.random() * 3)];
-        return rand;
-    }
-
-    const play = document.querySelectorAll('button');
-        play.addEventListener('click' = function(e){
-            console.log(play);
-        });
-
-    const round = document.querySelector('#round');
-    round.innerText = playRound(playerSelection, computerSelection);
 
 
     //function playGame() {
